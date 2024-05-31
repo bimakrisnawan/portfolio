@@ -204,11 +204,72 @@
                 <img src="assets/img/react_home.png" alt="React" />
               </div>
             </li>
+            <li class="work__list-el">
+              <div class="work__content">
+                <div class="work__content-blurb blurb blurb--framed">
+                  <h3 class="blurb__heading">
+                    Lorem Ipsum<br />
+                    Design
+                  </h3>
+                  <p class="blurb__copy">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                </div>
+                <a class="transform-link" href="#" target="_blank"
+                  >See full project</a
+                >
+              </div>
+              <div class="work__visual">
+                <img src="assets/img/callidus_home.png" alt="Lorem Ipsum" />
+              </div>
+            </li>
+            <li class="work__list-el">
+              <div class="work__content">
+                <div class="work__content-blurb blurb blurb--framed">
+                  <h3 class="blurb__heading">
+                    Lorem Ipsum<br />
+                    Development
+                  </h3>
+                  <p class="blurb__copy">
+                    Sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p>
+                </div>
+                <a class="transform-link" href="#" target="_blank"
+                  >See full project</a
+                >
+              </div>
+              <div class="work__visual">
+                <img src="assets/img/callidus_home.png" alt="Lorem Ipsum" />
+              </div>
+            </li>
+            <li class="work__list-el">
+              <div class="work__content">
+                <div class="work__content-blurb blurb blurb--framed">
+                  <h3 class="blurb__heading">
+                    Lorem Ipsum<br />
+                    Analysis
+                  </h3>
+                  <p class="blurb__copy">
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat.
+                  </p>
+                </div>
+                <a class="transform-link" href="#" target="_blank"
+                  >See full project</a
+                >
+              </div>
+              <div class="work__visual">
+                <img src="assets/img/callidus_home.png" alt="Lorem Ipsum" />
+              </div>
+            </li>
           </ul>
           <ul class="work__navigation">
             <li class="work__navigation-el work__navigation-el--is-active"></li>
             <li class="work__navigation-el"></li>
-            <!-- <li class="work__navigation-el"></li> -->
+            <li class="work__navigation-el"></li>
+            <li class="work__navigation-el"></li>
+            <li class="work__navigation-el"></li>
           </ul>
         </div>
       </section>
@@ -268,8 +329,9 @@
           ".work__navigation-el"
         );
         let activeIndex = 0;
+        let interval;
 
-        setInterval(() => {
+        function setActiveElement(index) {
           // Menghapus class 'is-active' dari elemen list dan navigasi yang saat ini aktif
           workListElements[activeIndex].classList.remove(
             "work__list-el--is-active"
@@ -278,8 +340,8 @@
             "work__navigation-el--is-active"
           );
 
-          // Menghitung index berikutnya
-          activeIndex = (activeIndex + 1) % workListElements.length;
+          // Mengatur index aktif baru
+          activeIndex = index;
 
           // Menambahkan class 'is-active' ke elemen list dan navigasi yang baru
           workListElements[activeIndex].classList.add(
@@ -288,7 +350,24 @@
           navigationElements[activeIndex].classList.add(
             "work__navigation-el--is-active"
           );
-        }, 10000); // 10000 ms = 10 detik
+        }
+
+        function startInterval() {
+          interval = setInterval(() => {
+            let nextIndex = (activeIndex + 1) % workListElements.length;
+            setActiveElement(nextIndex);
+          }, 10000); // 10000 ms = 10 detik
+        }
+
+        navigationElements.forEach((el, index) => {
+          el.addEventListener("click", () => {
+            clearInterval(interval); // Menghentikan interval ketika navigasi diklik
+            setActiveElement(index);
+            startInterval(); // Memulai kembali interval setelah interaksi
+          });
+        });
+
+        startInterval(); // Memulai interval pada pemuatan halaman
       });
     </script>
   </body>

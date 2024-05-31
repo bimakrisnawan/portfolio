@@ -1628,3 +1628,15 @@ body.dark-mode .transform-link::after {
 body.dark-mode .blurb__heading {
   color: #fff; /* White color for headings in dark mode */
 }
+
+body.dark-mode .navigation__cta {
+  color: #fff; /* Ganti dengan warna yang Anda inginkan */
+}
+
+body.dark-mode .text-block {
+  color: #757575; /* Warna abu-abu */
+}
+
+body.dark-mode ::selection {
+  background: #1f1f1f;
+}
