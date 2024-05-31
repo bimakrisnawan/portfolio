@@ -575,6 +575,17 @@ input[type="button"]:focus {
   .navigation__cta {
     display: none;
   }
+  body.dark-mode .navigation__container {
+    background-color: #333;
+  }
+  .navigation .toggle-dark-mode {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0; /* Menghilangkan margin */
+    padding: 0; /* Menghilangkan padding */
+  }
+  }
   .navigation__container {
     position: fixed;
     top: 0;
