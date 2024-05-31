@@ -856,6 +856,9 @@ input[type="button"]:focus {
   left: 45px;
   bottom: 0;
   z-index: 0;
+  position: relative;
+  flex-basis: 50%;
+  max-width: 50%;
 }
 .about__content {
   position: relative;
@@ -882,18 +885,24 @@ input[type="button"]:focus {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
+    /* flex-direction: column-reverse;  */
   }
   .about__wrapper::before {
     right: 0;
     bottom: 0;
   }
+  
+  .about__content, .about__description {
+    padding: 10px;
+    text-align: center;
+  }
+
   .about__visual {
-    bottom: -60px;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
+    display: none;
   }
   .about__content {
+    position: relative; /* Pastikan ini ada agar z-index berfungsi */
+    z-index: 1; /* Set z-index lebih tinggi dari gambar */
     text-align: center;
   }
   .about__content-blurb {
@@ -915,7 +924,7 @@ input[type="button"]:focus {
     height: 540px;
   }
   .about__visual {
-    width: 335px;
+    display: none;
   }
   .about__content-blurb h2 {
     font-size: 32px;
@@ -928,9 +937,11 @@ input[type="button"]:focus {
   .about__wrapper::before {
     display: none;
   }
+  .about__wrapper{
+    flex-direction: column-reverse; 
+  }
   .about__visual {
-    width: 290px;
-    max-width: 100%;
+    display: none;
   }
 }
 .app-design {
@@ -1572,9 +1583,7 @@ body.dark-mode .introduction__arrow,
 body.dark-mode .footer__arrow-el {
   fill: #e0e0e0;
 }
-body.dark-mode .about__visual {
-  filter: brightness(0.5);
-}
+
 
 /* Dark mode styling for specific sections */
 body.dark-mode .about,
@@ -1640,3 +1649,61 @@ body.dark-mode .text-block {
 body.dark-mode ::selection {
   background: #1f1f1f;
 }
+.education-journey__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.education-journey__path {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.education-journey__stage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 20px;
+}
+
+.education-journey__stage::after {
+  content: attr(data-stage);
+  position: absolute;
+  top: 110%;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+}
+
+.education-journey__line {
+  flex-grow: 1;
+  height: 2px;
+  background-color: #ccc;
+  border-top: 2px dashed #000;
+}
+.about__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about__content, .about__description {
+  flex: 1;
+  padding: 20px;
+  position: relative;
+  z-index: 2; 
+}
+.text__desc {
+  text-align: justify;
+}
+
+
