@@ -287,33 +287,6 @@
             "work__navigation-el--is-active"
           );
         }, 10000); // 10000 ms = 10 detik
-
-        const toggleSwitch = document.getElementById("dark-mode-toggle");
-        const prefersDarkScheme = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        );
-
-        // Setel status toggle berdasarkan preferensi sistem
-        toggleSwitch.checked = prefersDarkScheme.matches;
-
-        // Tambahkan event listener untuk mengubah tema ketika toggle diubah
-        toggleSwitch.addEventListener("change", function (event) {
-          if (event.target.checked) {
-            document.body.classList.add("dark-mode");
-          } else {
-            document.body.classList.remove("dark-mode");
-          }
-        });
-
-        // Tambahkan event listener untuk mengubah toggle ketika preferensi sistem berubah
-        prefersDarkScheme.addEventListener("change", function (e) {
-          toggleSwitch.checked = e.matches;
-          if (e.matches) {
-            document.body.classList.add("dark-mode");
-          } else {
-            document.body.classList.remove("dark-mode");
-          }
-        });
       });
     </script>
   </body>
