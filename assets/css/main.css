@@ -1512,102 +1512,104 @@ input[type="button"]:focus {
   }
 }
 
-.toggle-dark-mode {
-  margin-left: 20px;
-  display: inline-block;
-  vertical-align: middle;
-}
+@media (prefers-color-scheme: dark) {
+  .toggle-dark-mode {
+    margin-left: 20px;
+    display: inline-block;
+    vertical-align: middle;
+  }
 
-.toggle-dark-mode input[type="checkbox"] {
-  display: none;
-}
+  .toggle-dark-mode input[type="checkbox"] {
+    display: none;
+  }
 
-.toggle-dark-mode label {
-  cursor: pointer;
-  text-indent: -9999px;
-  width: 50px;
-  height: 25px;
-  background: #729193; /* Warna hijau untuk light mode */
-  display: block;
-  border-radius: 100px;
-  position: relative;
-}
+  .toggle-dark-mode label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    background: #729193; /* Warna hijau untuk light mode */
+    display: block;
+    border-radius: 100px;
+    position: relative;
+  }
 
-.toggle-dark-mode input[type="checkbox"]:checked + label {
-  background: #4d4d4d; /* Warna abu-abu untuk dark mode */
-}
+  .toggle-dark-mode input[type="checkbox"]:checked + label {
+    background: #4d4d4d; /* Warna abu-abu untuk dark mode */
+  }
 
-.toggle-dark-mode label:after {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 21px;
-  height: 21px;
-  background: #fff;
-  border-radius: 90px;
-  transition: 0.3s;
-}
+  .toggle-dark-mode label:after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 21px;
+    height: 21px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
 
-.toggle-dark-mode input[type="checkbox"]:checked + label:after {
-  left: calc(100% - 2px);
-  transform: translateX(-100%);
-}
+  .toggle-dark-mode input[type="checkbox"]:checked + label:after {
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
+  }
 
-body.dark-mode {
-  background-color: #333;
-  color: #fff;
-}
+  body.dark-mode {
+    background-color: #333;
+    color: #fff;
+  }
 
-/* Dark mode styling for specific sections */
-body.dark-mode .about,
-body.dark-mode .web-design,
-body.dark-mode .work {
-  background-color: #333; /* Darker shade for background */
-  color: #e0e0e0; /* Lighter shade for text */
-}
+  /* Dark mode styling for specific sections */
+  body.dark-mode .about,
+  body.dark-mode .web-design,
+  body.dark-mode .work {
+    background-color: #333; /* Darker shade for background */
+    color: #e0e0e0; /* Lighter shade for text */
+  }
 
-body.dark-mode .about__content,
-body.dark-mode .web-design__content,
-body.dark-mode .work__content {
-  border-color: #616161; /* Adjust border color for dark mode */
-}
+  body.dark-mode .about__content,
+  body.dark-mode .web-design__content,
+  body.dark-mode .work__content {
+    border-color: #616161; /* Adjust border color for dark mode */
+  }
 
-body.dark-mode .about h2,
-body.dark-mode .web-design h2,
-body.dark-mode .work h2 {
-  color: #ffffff; /* Light color for headings in dark mode */
-}
+  body.dark-mode .about h2,
+  body.dark-mode .web-design h2,
+  body.dark-mode .work h2 {
+    color: #ffffff; /* Light color for headings in dark mode */
+  }
 
-body.dark-mode .about a,
-body.dark-mode .web-design a,
-body.dark-mode .work a {
-  color: #ffffff; /* Light color color for links in dark mode */
-}
+  body.dark-mode .about a,
+  body.dark-mode .web-design a,
+  body.dark-mode .work a {
+    color: #ffffff; /* Light color color for links in dark mode */
+  }
 
-/* Dark mode styling for .blurb--framed */
-body.dark-mode .blurb--framed {
-  background-color: rgba(33, 33, 33, 0.2); /* Dark color with 20% opacity */
-  color: #e0e0e0; /* Lighter shade for text */
-  border-color: #616161; /* Adjust border color for dark mode */
-}
-/* Dark mode styling for .about__wrapper */
-body.dark-mode .about__wrapper::before {
-  border-color: #424242; /* Dark grey color for the border */
-}
-body.dark-mode .work__list::before {
-  border-color: #424242; /* Dark grey color for the border */
-}
+  /* Dark mode styling for .blurb--framed */
+  body.dark-mode .blurb--framed {
+    background-color: rgba(33, 33, 33, 0.2); /* Dark color with 20% opacity */
+    color: #e0e0e0; /* Lighter shade for text */
+    border-color: #616161; /* Adjust border color for dark mode */
+  }
+  /* Dark mode styling for .about__wrapper */
+  body.dark-mode .about__wrapper::before {
+    border-color: #424242; /* Dark grey color for the border */
+  }
+  body.dark-mode .work__list::before {
+    border-color: #424242; /* Dark grey color for the border */
+  }
 
-body.dark-mode .transform-link::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 1px;
-  background-color: #ffffff;
-}
+  body.dark-mode .transform-link::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #ffffff;
+  }
 
-/* Dark mode styling for .blurb__heading */
-body.dark-mode .blurb__heading {
-  color: #fff; /* White color for headings in dark mode */
+  /* Dark mode styling for .blurb__heading */
+  body.dark-mode .blurb__heading {
+    color: #fff; /* White color for headings in dark mode */
+  }
 }
