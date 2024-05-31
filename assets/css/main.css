@@ -578,13 +578,13 @@ input[type="button"]:focus {
   body.dark-mode .navigation__container {
     background-color: #333;
   }
+  .navigation {
+    position: relative; /* Menambahkan ini jika belum ada */
+  }
   .navigation .toggle-dark-mode {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    margin: 0; /* Menghilangkan margin */
-    padding: 0; /* Menghilangkan padding */
-  }
   }
   .navigation__container {
     position: fixed;
@@ -1524,7 +1524,6 @@ input[type="button"]:focus {
 }
 
 .toggle-dark-mode {
-  margin-left: 20px;
   display: inline-block;
   vertical-align: middle;
 }
