@@ -424,7 +424,7 @@ input[type="button"]:focus {
 }
 .blurb--framed {
   padding: 15px 0;
-  background-color: rgba(250, 250, 250, 0.7);
+  background-color: rgba(250, 250, 250, 1.0);
 }
 .blurb__heading {
   margin: 0 0 15px 0;
@@ -432,6 +432,7 @@ input[type="button"]:focus {
   font-size: 58px;
   font-weight: 800;
 }
+
 .blurb__copy {
   font-weight: 700;
 }
@@ -733,7 +734,13 @@ input[type="button"]:focus {
     -webkit-transform-origin: left bottom;
     transform-origin: left bottom;
   }
+
+  .education-journey__stage::after {
+    min-width: 100px; /* Lebar minimum yang lebih kecil untuk layar tablet */
+    font-size: 12px; /* Ukuran font yang lebih kecil */
+  }
 }
+
 .scroll-lock {
   position: fixed;
   width: 100%;
@@ -1226,6 +1233,9 @@ input[type="button"]:focus {
   .work__content-blurb h3 {
     font-size: 30px;
   }
+  .education-journey h2 {
+    font-size: 32px;
+  }
 }
 @media (max-width: 480px) {
   .work__list::before {
@@ -1649,11 +1659,17 @@ body.dark-mode .text-block {
 body.dark-mode ::selection {
   background: #1f1f1f;
 }
+
 .education-journey__wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px; /* Lebar maksimum untuk layar besar */
+  margin: 0 auto;
+  padding: 0 20px;
 }
+
 
 .education-journey__path {
   display: flex;
@@ -1663,33 +1679,70 @@ body.dark-mode ::selection {
   width: 100%;
 }
 
-.education-journey__stage {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin: 20px;
-}
-
 .education-journey__stage::after {
   content: attr(data-stage);
   position: absolute;
   top: 110%;
-  width: 100%;
+  min-width: 150px; /* Menambahkan lebar minimum */
   text-align: center;
   font-size: 14px;
+  white-space: normal; /* Mengizinkan teks untuk bungkus */
+  line-height: 1.5; /* Mengatur jarak antar baris */
 }
 
 .education-journey__line {
   flex-grow: 1;
   height: 2px;
-  background-color: #ccc;
-  border-top: 2px dashed #000;
+  background: linear-gradient(to right, #ccc 33%, rgba(255,255,255,0) 0%);
+  background-position: top;
+  background-size: 5px 1px;
+  background-repeat: repeat-x;
 }
+
+/* Responsif untuk tablet */
+@media (max-width: 768px) {
+  .education-journey__wrapper {
+    max-width: 600px; /* Lebar maksimum disesuaikan untuk tablet */
+    padding: 0 15px; /* Penyesuaian padding */
+  }
+
+  .education-journey__path {
+    flex-direction: column;
+  }
+
+  .education-journey__stage {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 50px; /* Menambahkan margin bawah */
+  }
+
+  .education-journey__stage::after {
+    font-size: 12px; /* Ukuran font yang lebih kecil */
+  }
+}
+
+/* Responsif untuk ponsel */
+@media (max-width: 480px) {
+  .education-journey__wrapper {
+    max-width: 100%; /* Gunakan 100% lebar pada perangkat mobile */
+    padding: 0 10px; /* Penyesuaian padding lebih kecil */
+  }
+
+  .education-journey__path {
+    flex-direction: column;
+  }
+
+  .education-journey__stage {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 30px; /* Menambahkan margin bawah yang lebih besar */
+  }
+
+  .education-journey__stage::after {
+    font-size: 10px; /* Ukuran font yang lebih kecil */
+  }
+}
+
 .about__wrapper {
   display: flex;
   justify-content: space-between;
@@ -1705,5 +1758,211 @@ body.dark-mode ::selection {
 .text__desc {
   text-align: justify;
 }
+.education-journey__stage {
+  position: relative;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #729193 0%, #fff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.education-journey__stage::before {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  width: 56.25px; /* 3/4 dari 75px */
+  height: 56.25px;
+  background: radial-gradient(circle, #95a5a6 0%, #fff 100%);
+  top: 9.375px; /* (75 - 56.25) / 2 */
+  left: 9.375px;
+}
 
+.education-journey__stage:hover::before {
+  animation: pulse 2s infinite;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Styling untuk pop-up */
+/* Styling untuk pop-up */
+.popup-info {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%; /* Atur lebar pop-up */
+  max-width: 600px;
+  padding: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 1001; /* Pastikan lebih tinggi dari overlay */
+}
+
+/* Styling untuk close button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Styling untuk overlay blur */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1000; /* Pastikan ini di bawah pop-up */
+}
+
+/* Animasi muncul */
+.popup-info.active, .overlay.active {
+  display: block;
+}
+
+.popup-info h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.popup-info p {
+  color: #666;
+  font-size: 16px;
+}
+
+.popup-info img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+/* dark mode */
+
+/* Styling untuk pop-up dalam dark mode */
+body.dark-mode .popup-info {
+  background-color: #333; /* Warna latar belakang untuk dark mode */
+  color: #e0e0e0; /* Warna teks untuk dark mode */
+  border-color: #616161; /* Warna border untuk dark mode */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Bayangan yang lebih terang untuk dark mode */
+}
+
+body.dark-mode .popup-info h2,
+body.dark-mode .popup-info p {
+  color: #e0e0e0; /* Warna teks untuk judul dan paragraf dalam dark mode */
+}
+
+body.dark-mode .close-button {
+  color: #e0e0e0; /* Warna untuk tombol tutup dalam dark mode */
+}
+
+/* Menambahkan gradasi warna untuk dark mode */
+body.dark-mode .education-journey__stage {
+  background: radial-gradient(circle, #333 0%, #4d4d4d 100%);
+}
+
+body.dark-mode .education-journey__stage::before {
+  background: radial-gradient(circle, #4d4d4d 0%, #666 100%);
+}
+
+.letter {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.letter:hover {
+  transform: scale(1.3); /* Mengubah ukuran huruf menjadi 150% */
+  text-shadow: 10px 18px 35px rgba(88, 88, 88, 0.23); 
+}
+
+body.dark-mode .letter:hover {
+  text-shadow: 10px 18px 35px rgba(255, 255, 255, 0.5); /* Bayangan teks keputihan */
+}
+body.dark-mode .letter {
+  text-shadow: 10px 18px 35px rgba(255, 255, 255, 0.5); /* Bayangan teks keputihan */
+}
+
+.education-journey {
+  margin-top: 50px; /* Atur sesuai kebutuhan */
+  margin-bottom: 50px; /* Atur sesuai kebutuhan */
+  width: 100%;
+  padding: 20px 0;
+}
+.info-icon {
+  display: inline-block;
+  margin-left: 10px;
+  cursor: help;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+}
+body.dark-mode .info-icon {
+  background-color: #333; /* Mengubah warna latar belakang untuk dark mode */
+  color: #e0e0e0; /* Mengubah warna teks untuk dark mode */
+  border-color: #616161; /* Mengubah warna border untuk dark mode */
+}
+
+.info-icon:hover::after {
+  content: attr(title);
+  position: absolute; /* Tetap menggunakan absolute untuk mengikuti posisi relatif logo 'i' */
+  left: 50%; /* Posisikan ke tengah relatif terhadap logo 'i' */
+  transform: translateX(-50%); /* Geser ke kiri sebanyak 50% dari lebar teks untuk memusatkan */
+  white-space: nowrap;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 1000;
+}
+
+body.dark-mode .info-icon:hover::after {
+  background-color: #333; /* Mengubah warna latar belakang tooltip untuk dark mode */
+  color: #e0e0e0; /* Mengubah warna teks tooltip untuk dark mode */
+  border-color: #616161; /* Mengubah warna border tooltip untuk dark mode */
+}
+
+.journal-section {
+  display: flex;
+  align-items: center; /* Alinea item di tengah secara vertikal */
+}
+
+.journal-heading {
+  flex: 1; /* Memberi ruang yang sama untuk heading dan info */
+  margin-right: 20px; /* Memberi jarak antara heading dan info */
+}
+
+.journal-info {
+  flex: 1; /* Memberi ruang yang sama untuk heading dan info */
+}
+.education-journey__header {
+  display: flex;
+  align-items: center; /* Menyelaraskan item secara vertikal */
+  justify-content: center; /* Menjaga jarak antara elemen */
+  width: 100%;
+  margin-bottom: 25px; 
+}

@@ -43,7 +43,7 @@
             </li>
           </ul>
         </nav>
-        <a class="navigation__cta button" href="#projects">Projects</a>
+        <a class="navigation__cta button" href="#projects">Contact Me!</a>
         <!-- Toggle Dark Mode -->
 
         <div class="navigation__burger">
@@ -67,7 +67,14 @@
           >
           <span
             class="introduction__content-el introduction__content-el--description"
-            >Hello!</span
+            >
+            <span class="letter">H</span>
+            <span class="letter">e</span>
+            <span class="letter">l</span>
+            <span class="letter">l</span>
+            <span class="letter">o</span>
+            <span class="letter">!</span>
+            </span
           >
           <span class="introduction__content-el introduction__content-el--job"
             >Software Engineer - UI/UX</span
@@ -122,24 +129,30 @@
         </div>
       </section>
       <!-- END SECTION: About -->
+      
       <!-- SECTION: Education Journey -->
-      <!-- <section class="education-journey" id="education">
+      <section class="education-journey" id="education">
         <div class="education-journey__wrapper wrapper--large">
-          <h2 class="blurb__heading">Education Journey</h2>
+          <div class="education-journey__header">
+            <h2 class="blurb__heading">Education Journey</h2>
+            <div class="info-icon" title="Click on each stage to see more details.">&#9432;</div>
+          </div>
           <div class="education-journey__path">
-            <div class="education-journey__stage" data-stage="SD Pangudiuhur Surakarta"></div>
+            <div class="education-journey__stage" data-stage="SD Pangudiuhur Surakarta">
+            </div>
             <span class="education-journey__line"></span>
-            <div class="education-journey__stage" data-stage="SMP Regina Pacis Surakarta"></div>
+            <div class="education-journey__stage" data-stage="SMP Regina Pacis Surakarta">
+            </div>
             <span class="education-journey__line"></span>
-            <div class="education-journey__stage" data-stage="SMAN 1 Kartasura"></div>
+            <div class="education-journey__stage" data-stage="SMAN 1 Kartasura">
+            </div>
             <span class="education-journey__line"></span>
-            <div class="education-journey__stage" data-stage="Universitas Kristen Satya Wacana"></div>
+            <div class="education-journey__stage" data-stage="Universitas Kristen Satya Wacana">
+            </div>
           </div>
         </div>
-      </section> -->
+      </section>
       <!-- END SECTION: Education Journey -->
-
-
 
       <!-- SECTION: App Design -->
       <section class="app-design" id="achievement">
@@ -329,5 +342,74 @@
         startInterval(); // Memulai interval pada pemuatan halaman
       });
     </script>
+    <!-- popup -->
+    <script>
+// Contoh data untuk setiap stage
+      const stageDetails = {
+        "SD Pangudiuhur Surakarta": {
+          title: "SD Pangudiuhur Surakarta",
+          description: "(Soon !!!)Description about SD Pangudiuhur Surakarta.",
+          image: "assets/img/work-eostre.jpg"
+        },
+        "SMP Regina Pacis Surakarta": {
+          title: "SMP Regina Pacis Surakarta",
+          description: "(Soon !!!)Description about SMP Regina Pacis Surakarta.",
+          image: "assets/img/work-eostre.jpg"
+        },
+        "SMAN 1 Kartasura": {
+          title: "SMAN 1 Kartasura",
+          description: "(Soon !!!)Description about SMAN 1 Kartasura.",
+          image: "assets/img/work-eostre.jpg"
+        },
+        "Universitas Kristen Satya Wacana": {
+          title: "Universitas Kristen Satya Wacana",
+          description: "(Soon !!!)Description about Universitas Kristen Satya Wacana.",
+          image: "assets/img/work-eostre.jpg"
+        },
+        // Tambahkan lebih banyak stage sesuai kebutuhan
+      };
+
+      document.addEventListener("DOMContentLoaded", function() {
+        const stages = document.querySelectorAll('.education-journey__stage');
+        const popup = document.createElement('div');
+        const overlay = document.createElement('div');
+        const closeButton = document.createElement('span');
+
+        popup.className = 'popup-info';
+        overlay.className = 'overlay';
+        closeButton.className = 'close-button';
+        closeButton.innerHTML = '&times;';
+
+        document.body.appendChild(overlay);
+        document.body.appendChild(popup);
+        popup.appendChild(closeButton);
+
+        stages.forEach(stage => {
+          stage.addEventListener('click', function() {
+            const stageName = this.getAttribute('data-stage');
+            const detail = stageDetails[stageName];
+
+            popup.innerHTML = `
+              <h2>${detail.title}</h2>
+              <p>${detail.description}</p>
+              <img src="${detail.image}" alt="${detail.title}" style="width:100%; height:auto;">
+            `;
+            popup.appendChild(closeButton);
+            popup.classList.add('active');
+            overlay.classList.add('active');
+          });
+        });
+
+        closeButton.addEventListener('click', function() {
+          popup.classList.remove('active');
+          overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', function() {
+          popup.classList.remove('active');
+          overlay.classList.remove('active');
+          });
+        });
+      </script>
   </body>
 </html>
