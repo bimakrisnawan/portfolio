@@ -38,3 +38,28 @@ tailwind.config = {
         }
     }
 }
+// tailwind.config.js
+tailwind.config = {
+    darkMode: 'class',
+    theme: {
+        extend: {
+            colors: {
+                primary: '#ffd369',
+                secondary: '#2b2b3c',
+                lightBg: '#e0e0e0', // untuk Neumorphism terang
+                darkBg: '#2a2b38'   // untuk Neumorphism gelap
+            },
+            boxShadow: {
+                neumorph: '8px 8px 16px #bebebe, -8px -8px 16px #ffffff',
+                neumorphDark: '6px 6px 12px #1c1d25, -6px -6px 12px #343545'
+            },
+        }
+    }
+}
+
+function toggleDetail(button) {
+    const detailDiv = button.nextElementSibling;
+    const isHidden = detailDiv.classList.contains('hidden');
+    detailDiv.classList.toggle('hidden');
+    button.innerText = isHidden ? "- Show Less" : "+ Show More";
+}

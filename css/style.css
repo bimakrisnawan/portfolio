@@ -9,7 +9,8 @@
   }
 
   body {
-    font-family: 'Segoe UI', sans-serif;
+    background: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
   }
 
   #typewrite::after {
@@ -35,4 +36,29 @@
     transform-origin: bottom center;
   }
 
+/* Neumorphism Light */
+.neumorph {
+  background: #e0e0e0;
+  box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Neumorphism Dark */
+.dark .neumorph {
+  background: #2a2b38;
+  box-shadow: 6px 6px 12px #1c1d25, -6px -6px 12px #343545;
+}
+
+.neumorph:active {
+  box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
+}
+.dark .neumorph:active {
+  box-shadow: inset 4px 4px 8px #1c1d25, inset -4px -4px 8px #343545;
+}
+
+
+.dark body {
+  background: #2a2b38;
+}
 
