@@ -128,5 +128,11 @@ document.addEventListener("DOMContentLoaded", function () {
         window.addEventListener("scroll", updateNavbar);
     }
 
+    function toggleDetail(btn) {
+        const detail = btn.nextElementSibling;
+        detail.classList.toggle('hidden');
+        btn.textContent = detail.classList.contains('hidden') ? '+ Show More' : '- Show Less';
+    }
+
 
 });

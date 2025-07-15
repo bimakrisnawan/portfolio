@@ -193,15 +193,20 @@
 
 
     <!-- Projects -->
-    <section id="projects" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20" data-aos="fade-up">
-        <h2 class="text-2xl sm:text-3xl font-bold text-yellow-600 mb-8 sm:mb-12 text-center">🚀 Featured Projects</h2>
-        <div class="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- Projects -->
+    <section id="projects" class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20" data-aos="fade-up">
+        <h2 class="text-xl sm:text-3xl font-bold text-yellow-600 mb-8 sm:mb-12 text-center">
+            🚀 Featured Projects
+        </h2>
+
+        <div class="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
             <!-- Superset Project -->
-            <div class="neumorph p-6 rounded-lg hover:scale-[1.01] transition-transform duration-300 space-y-3">
+            <div
+                class="neumorph p-4 sm:p-6 rounded-lg hover:scale-[1.01] transition-transform duration-300 space-y-2 sm:space-y-3">
                 <div class="flex items-center">
-                    <span class="text-xl sm:text-2xl mr-2">📊</span>
-                    <h3 class="text-base sm:text-lg font-semibold text-gray-800 dark:text-yellow-600">
+                    <span class="text-lg sm:text-2xl mr-2">📊</span>
+                    <h3 class="text-sm sm:text-lg font-semibold text-gray-800 dark:text-yellow-600">
                         Dashboard Migration to Superset
                     </h3>
                 </div>
@@ -209,107 +214,71 @@
                     Migrated dashboards from Tableau to Superset using SSO & custom React plugins.
                 </p>
                 <button onclick="toggleDetail(this)"
-                    class="text-yellow-700 dark:text-yellow-300 text-xs font-medium hover:underline focus:outline-none">
+                    class="text-yellow-700 dark:text-yellow-300 text-xs font-medium hover:underline">
                     + Show More
                 </button>
-                <div class="hidden detail">
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 mt-2">
-                        <strong>Background:</strong> Replacing costly Tableau dashboards with open-source alternative.
-                    </p>
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                        <strong>Solution:</strong> Set up Superset with SSO (SAML), customized access, and React plugins
-                        to support advanced visualizations.
-                    </p>
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                        <strong>Stack:</strong> Superset, React, PostgreSQL, SAML
-                    </p>
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                        <strong>Impact:</strong> Cut license cost, improved dashboard load speed by
-                        <strong>65%</strong>.
-                    </p>
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                        <strong>Learned:</strong> Integrating SSO with third-party tools and designing React-based
-                        modular plugins for analytics tools.
-                    </p>
+                <div class="hidden detail space-y-1 text-xs sm:text-sm text-gray-700 dark:text-gray-300 mt-2">
+                    <p><strong>Background:</strong> Replacing costly Tableau dashboards.</p>
+                    <p><strong>Solution:</strong> Superset with SSO and custom plugins.</p>
+                    <p><strong>Stack:</strong> Superset, React, PostgreSQL, SAML</p>
+                    <p><strong>Impact:</strong> Reduced license cost, 65% faster load.</p>
+                    <p><strong>Learned:</strong> SSO integration and plugin development.</p>
                 </div>
             </div>
 
             <!-- DuckDB Project -->
-            <div class="neumorph p-6 rounded-lg hover:scale-[1.01] transition-transform duration-300 space-y-3">
+            <div
+                class="neumorph p-4 sm:p-6 rounded-lg hover:scale-[1.01] transition-transform duration-300 space-y-2 sm:space-y-3">
                 <div class="flex items-center">
-                    <span class="text-xl sm:text-2xl mr-2">⚡</span>
-                    <h3 class="text-base sm:text-lg font-semibold text-gray-800 dark:text-yellow-600">
+                    <span class="text-lg sm:text-2xl mr-2">⚡</span>
+                    <h3 class="text-sm sm:text-lg font-semibold text-gray-800 dark:text-yellow-600">
                         DuckDB & Parquet Pipeline
                     </h3>
                 </div>
                 <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                    Automated daily pipeline from Oracle to DuckDB + Parquet for faster dashboard queries.
+                    Automated pipeline from Oracle to DuckDB + Parquet for fast dashboards.
                 </p>
                 <button onclick="toggleDetail(this)"
-                    class="text-yellow-700 dark:text-yellow-300 text-xs font-medium hover:underline focus:outline-none">
+                    class="text-yellow-700 dark:text-yellow-300 text-xs font-medium hover:underline">
                     + Show More
                 </button>
-                <div class="hidden detail">
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 mt-2">
-                        <strong>Background:</strong> Slow queries from raw Oracle tables in dashboards.
-                    </p>
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                        <strong>Solution:</strong> Daily Python jobs extract data from Oracle, transform using DuckDB,
-                        store as Parquet for fast reading in Superset.
-                    </p>
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                        <strong>Stack:</strong> Oracle, DuckDB, Python, Parquet, Superset
-                    </p>
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                        <strong>Impact:</strong> Reduced dashboard load times and enabled real-time filtering on >500K
-                        rows.
-                    </p>
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                        <strong>Learned:</strong> Pipeline optimization for large datasets, and using columnar storage
-                        for speed.
-                    </p>
+                <div class="hidden detail space-y-1 text-xs sm:text-sm text-gray-700 dark:text-gray-300 mt-2">
+                    <p><strong>Background:</strong> Oracle queries too slow for dashboard use.</p>
+                    <p><strong>Solution:</strong> Daily pipeline using DuckDB & Parquet.</p>
+                    <p><strong>Stack:</strong> Oracle, DuckDB, Python, Superset</p>
+                    <p><strong>Impact:</strong> Real-time filter on 500K+ rows, faster UX.</p>
+                    <p><strong>Learned:</strong> Columnar storage and pipeline optimization.</p>
                 </div>
             </div>
 
             <!-- Webix Dashboard Project -->
-            <div class="neumorph p-6 rounded-lg hover:scale-[1.01] transition-transform duration-300 space-y-3">
+            <div
+                class="neumorph p-4 sm:p-6 rounded-lg hover:scale-[1.01] transition-transform duration-300 space-y-2 sm:space-y-3">
                 <div class="flex items-center">
-                    <span class="text-xl sm:text-2xl mr-2">📈</span>
-                    <h3 class="text-base sm:text-lg font-semibold text-gray-800 dark:text-yellow-600">
+                    <span class="text-lg sm:text-2xl mr-2">📈</span>
+                    <h3 class="text-sm sm:text-lg font-semibold text-gray-800 dark:text-yellow-600">
                         Webix & Flask Dashboard
                     </h3>
                 </div>
                 <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                    Built custom dashboard using Webix and Flask for internal operational team.
+                    Built a custom dashboard with Flask & Webix for operations team.
                 </p>
                 <button onclick="toggleDetail(this)"
-                    class="text-yellow-700 dark:text-yellow-300 text-xs font-medium hover:underline focus:outline-none">
+                    class="text-yellow-700 dark:text-yellow-300 text-xs font-medium hover:underline">
                     + Show More
                 </button>
-                <div class="hidden detail">
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300 mt-2">
-                        <strong>Background:</strong> Users needed a dashboard that fit their exact daily workflow.
-                    </p>
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                        <strong>Solution:</strong> Built interface with Webix components and Flask backend. Integrated
-                        filtering, export to Excel, and login.
-                    </p>
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                        <strong>Stack:</strong> Webix, Flask, Oracle, Python
-                    </p>
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                        <strong>Impact:</strong> Saved time on manual reporting and increased decision speed for
-                        operations.
-                    </p>
-                    <p class="text-xs sm:text-sm text-gray-700 dark:text-gray-300">
-                        <strong>Learned:</strong> Working closely with non-technical users and prioritizing usability in
-                        dashboard design.
-                    </p>
+                <div class="hidden detail space-y-1 text-xs sm:text-sm text-gray-700 dark:text-gray-300 mt-2">
+                    <p><strong>Background:</strong> Needed flexible dashboard for daily ops.</p>
+                    <p><strong>Solution:</strong> UI with Webix + backend in Flask.</p>
+                    <p><strong>Stack:</strong> Flask, Webix, Python, Oracle</p>
+                    <p><strong>Impact:</strong> Faster reporting, reduced manual effort.</p>
+                    <p><strong>Learned:</strong> Collaborating with non-tech stakeholders.</p>
                 </div>
             </div>
 
         </div>
     </section>
+
 
 
 
@@ -331,7 +300,9 @@
     <footer class="text-sm sm:text-base text-center py-6 text-gray-500">
         &copy; 2025 Albertus Bima Krisnawan. <br>Built with passion and code.
     </footer>
+
     <script src="js/bottom.js"></script>
+
 
 </body>
 
