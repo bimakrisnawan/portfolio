@@ -127,4 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
         updateNavbar();
         window.addEventListener("scroll", updateNavbar);
     }
+
+
 });
